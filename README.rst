@@ -1,5 +1,14 @@
-## AI! expand description
-**dreamer** turn music into visuals
+**dreamer** - Music Visualization Tool
+====================================
+
+Transform your music into mesmerizing visual experiences with **dreamer**. This Python tool analyzes audio files using advanced signal processing to generate synchronized video visualizations, creating dynamic animations that respond to your music's rhythm, frequency content, and energy.
+
+Key Features:
+- Mel spectrogram analysis for frequency visualization
+- RMS energy tracking for dynamic animations
+- Real-time audio processing with librosa
+- Customizable visual effects and animations
+- Easy-to-use command line interface
 
 
 Features
