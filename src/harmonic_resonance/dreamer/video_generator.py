@@ -7,6 +7,7 @@ import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.animation as animation
+import subprocess
 
 class VideoGenerator:
     def __init__(self, audio_file):
@@ -45,7 +46,24 @@ class VideoGenerator:
         # Reduce the number of frames by using a smaller subset of the audio data
         num_frames = min(1000, len(self.rms))  # Limit to 1000 frames or the length of RMS
         ani = animation.FuncAnimation(fig, update, frames=range(num_frames), blit=True)
-        ani.save('audio_visualization.mp4', fps=30, extra_args=['-vcodec', 'libx264'])
+        # Save video without audio first
+        temp_video = 'temp_visualization.mp4'
+        ani.save(temp_video, fps=30, extra_args=['-vcodec', 'libx264'])
+        
+        # Merge video with audio using ffmpeg
+        output_video = 'audio_visualization.mp4'
+        cmd = [
+            'ffmpeg', '-y',
+            '-i', temp_video,
+            '-i', self.audio_file,
+            '-c:v', 'copy',
+            '-c:a', 'aac',
+            output_video
+        ]
+        subprocess.run(cmd)
+        
+        # Clean up temporary file
+        subprocess.run(['rm', temp_video])
 
 def test_video_generation():
     """
