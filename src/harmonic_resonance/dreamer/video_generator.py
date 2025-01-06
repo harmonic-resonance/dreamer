@@ -24,6 +24,7 @@ class VideoGenerator:
 
         circle = plt.Circle((0.5, 0.5), 0.1, color='white')
         ax.add_artist(circle)
+        fig.patch.set_facecolor('black')
         ax.set_facecolor('black')
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1)
