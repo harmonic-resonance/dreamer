@@ -1,11 +1,6 @@
+## AI! expand description
+**dreamer** turn music into visuals
 
-
-## AI! exand description
-turn music into visuals
-=======
-
-## AI! exand description
-turn music into visuals
 
 Features
 --------
