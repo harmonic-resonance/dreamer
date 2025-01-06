@@ -16,6 +16,9 @@ dependencies = [
     "textual",
     "rich",
     "jinja2",
+    "librosa",
+    "matplotlib",
+    "numpy",
 ]
 
 [project.scripts]
