@@ -122,7 +122,7 @@ def test_video_generation():
     audio_file = "test.wav"
     video_generator = VideoGenerator(audio_file)
     video_generator.generate_frames()
-    print("Test video generation completed for test.wav")
+    print("Test video generation completed for", audio_file)
 
 if __name__ == "__main__":
     test_video_generation()
