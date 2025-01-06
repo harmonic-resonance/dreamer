@@ -43,3 +43,6 @@ def test_video_generation():
     video_generator.generate_frames()
     print("Test video generation completed for test.wav")
 
+if __name__ == "__main__":
+    test_video_generation()
+
