@@ -34,5 +34,12 @@ class VideoGenerator:
         ani = animation.FuncAnimation(fig, update, frames=range(len(self.y)), blit=True)
         ani.save('audio_visualization.mp4', fps=30, extra_args=['-vcodec', 'libx264'])
 
-# AI! create a test function for test.wav
+def test_video_generation():
+    """
+    Test function to generate video frames from a test audio file.
+    """
+    audio_file = "test.wav"
+    video_generator = VideoGenerator(audio_file)
+    video_generator.generate_frames()
+    print("Test video generation completed for test.wav")
 

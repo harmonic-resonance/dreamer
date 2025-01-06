@@ -2,9 +2,9 @@
 dreamer.py - Main module to process audio and generate video.
 """
 
-from audio_processor import AudioProcessor
-from video_generator import VideoGenerator
-from utils import log_message
+from .audio_processor import AudioProcessor
+from .video_generator import VideoGenerator
+from .utils import log_message
 
 def main(audio_file):
     log_message("Starting dreamer process")
