@@ -28,10 +28,14 @@ class VideoGenerator:
         ax.set_aspect('equal')
 
         def update(frame):
-            circle.set_radius(self.rms[frame % len(self.rms)] * 0.5)
+            # Use precomputed RMS values and avoid recalculating
+            rms_value = self.rms[frame % len(self.rms)]
+            circle.set_radius(rms_value * 0.5)
             return circle,
 
-        ani = animation.FuncAnimation(fig, update, frames=range(len(self.y)), blit=True)
+        # Reduce the number of frames by using a smaller subset of the audio data
+        num_frames = min(1000, len(self.rms))  # Limit to 1000 frames or the length of RMS
+        ani = animation.FuncAnimation(fig, update, frames=range(num_frames), blit=True)
         ani.save('audio_visualization.mp4', fps=30, extra_args=['-vcodec', 'libx264'])
 
 def test_video_generation():
