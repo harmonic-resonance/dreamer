@@ -22,6 +22,14 @@ class VideoGenerator:
         """
         fig, ax = plt.subplots()
 
+        circle = plt.Circle((0.5, 0.5), 0.1, color='white')
+        ax.add_artist(circle)
+        ax.set_facecolor('black')
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1)
+        ax.set_aspect('equal')
+        ax.axis('off')  # Remove x and y axis markers and labels
+
         def update(frame):
             # Use precomputed RMS values and avoid recalculating
             rms_value = self.rms[frame % len(self.rms)]
