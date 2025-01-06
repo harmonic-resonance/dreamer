@@ -29,12 +29,17 @@ class VideoGenerator:
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1)
         ax.set_aspect('equal')
-        ax.axis('off')  # Remove x and y axis markers and labels
+        ax.axis('off')
 
         def update(frame):
             # Use precomputed RMS values and avoid recalculating
             rms_value = self.rms[frame % len(self.rms)]
             circle.set_radius(rms_value * 0.5)
+
+            if frame in self.beat_frames:
+                circle.set_color('red')
+            else:
+                circle.set_color('white')
             return circle,
 
         # Reduce the number of frames by using a smaller subset of the audio data
