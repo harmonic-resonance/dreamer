@@ -16,8 +16,3 @@ class AudioProcessor:
         # Placeholder for audio analysis logic
         print(f"Analyzing audio file: {self.audio_file}")
         return {"tempo": 120, "key": "C Major"}
-```
-
-src/harmonic_resonance/dreamer/video_generator.py
-```python
-<<<<<<< SEARCH
